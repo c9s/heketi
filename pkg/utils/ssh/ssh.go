@@ -93,6 +93,7 @@ func NewSshExecWithKeyFile(logger *utils.Logger, user string, file string) *SshE
 		Auth: []ssh.AuthMethod{
 			ssh.PublicKeys(key),
 		},
+		HostKeyCallback: ssh.InsecureIgnoreHostKey(),
 	}
 
 	return sshexec
